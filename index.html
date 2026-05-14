@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Disney Run SG 2026 — Training & Nutrition Plan</title>
+  <style>
+    :root {
+      --disney-blue: #003087;
+      --disney-gold: #FFD700;
+      --disney-red: #E32636;
+      --accent: #00AEEF;
+      --bg: #f0f4f8;
+      --card: #ffffff;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --green: #16a34a;
+      --orange: #ea580c;
+      --purple: #7c3aed;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, var(--disney-blue) 0%, #001a5e 100%);
+      color: white;
+      text-align: center;
+      padding: 48px 24px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '✨';
+      font-size: 80px;
+      position: absolute;
+      top: -20px;
+      left: 10%;
+      opacity: 0.15;
+    }
+    header::after {
+      content: '🏃';
+      font-size: 80px;
+      position: absolute;
+      bottom: -10px;
+      right: 10%;
+      opacity: 0.15;
+    }
+    header .badge {
+      display: inline-block;
+      background: var(--disney-gold);
+      color: var(--disney-blue);
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 2px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    header h1 {
+      font-size: clamp(24px, 5vw, 42px);
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    header h1 span { color: var(--disney-gold); }
+    header p {
+      font-size: 15px;
+      opacity: 0.8;
+      margin-top: 8px;
+    }
+    .race-meta {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .race-meta .chip {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 13px;
+    }
+    .chip .label { opacity: 0.7; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+    .chip .value { font-weight: 700; font-size: 16px; margin-top: 2px; }
+
+    /* LAYOUT */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title .icon {
+      background: var(--disney-blue);
+      color: white;
+      border-radius: 8px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    /* SHOE CARD */
+    .shoe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .shoe-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      border: 2px solid transparent;
+    }
+    .shoe-card.primary { border-color: var(--disney-blue); }
+    .shoe-card .shoe-name {
+      font-weight: 800;
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+    .shoe-card .shoe-role {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    .role-train { background: #dbeafe; color: #1e40af; }
+    .role-race  { background: #dcfce7; color: #15803d; }
+    .shoe-card ul { list-style: none; }
+    .shoe-card ul li {
+      padding: 5px 0;
+      font-size: 14px;
+      border-bottom: 1px solid #f3f4f6;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .shoe-card ul li:last-child { border-bottom: none; }
+    .shoe-card ul li::before { content: '•'; color: var(--disney-blue); font-weight: 900; }
+
+    /* TRAINING PLAN */
+    .week-grid {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+    .week-card {
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+    .week-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+      background: var(--disney-blue);
+      color: white;
+    }
+    .week-num {
+      background: var(--disney-gold);
+      color: var(--disney-blue);
+      font-weight: 900;
+      border-radius: 8px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .week-header h3 { font-size: 16px; font-weight: 700; }
+    .week-header p { font-size: 13px; opacity: 0.8; margin-top: 2px; }
+    .week-dates {
+      margin-left: auto;
+      font-size: 12px;
+      opacity: 0.7;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .week-body {
+      padding: 16px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+    }
+    .day-box {
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 13px;
+    }
+    .day-box .day-label {
+      font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .day-box .day-activity { font-weight: 600; color: var(--text); }
+    .day-box .day-detail { color: var(--muted); font-size: 12px; margin-top: 2px; }
+    .day-box.rest { opacity: 0.5; }
+    .day-box.race {
+      background: linear-gradient(135deg, var(--disney-gold), #ffb700);
+      color: var(--disney-blue);
+    }
+    .day-box.race .day-label { color: rgba(0,48,135,0.7); }
+    .day-box.race .day-activity { color: var(--disney-blue); }
+
+    .week-tip {
+      padding: 10px 20px 14px;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid #f1f5f9;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    /* NUTRITION */
+    .meal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .meal-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .meal-card h3 {
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .meal-card .subtitle {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .meal-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 8px 0;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 14px;
+    }
+    .meal-item:last-child { border-bottom: none; }
+    .meal-item .food { color: var(--text); }
+    .meal-item .macros {
+      font-size: 12px;
+      color: var(--green);
+      font-weight: 700;
+      text-align: right;
+      flex-shrink: 0;
+      margin-left: 8px;
+    }
+
+    /* MACRO TARGETS */
+    .macro-bar-section {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin-bottom: 40px;
+    }
+    .macro-bar-section h3 {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+    .macro-row {
+      margin-bottom: 14px;
+    }
+    .macro-row .macro-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+    .macro-row .macro-label span:first-child { font-weight: 700; }
+    .macro-row .macro-label span:last-child { color: var(--muted); }
+    .bar-track {
+      background: #f1f5f9;
+      border-radius: 99px;
+      height: 10px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 99px;
+    }
+    .bar-protein { background: var(--green); width: 35%; }
+    .bar-carbs   { background: var(--accent); width: 50%; }
+    .bar-fat     { background: var(--orange); width: 15%; }
+
+    /* CREATINE */
+    .creatine-section {
+      background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+      border: 1px solid #c4b5fd;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+    .creatine-section h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--purple);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .creatine-section p {
+      font-size: 14px;
+      color: #4c1d95;
+      margin-bottom: 18px;
+    }
+    .creatine-phases {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .phase-card {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      border-left: 4px solid var(--purple);
+    }
+    .phase-card h4 {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--purple);
+      margin-bottom: 6px;
+    }
+    .phase-card p {
+      font-size: 13px;
+      color: var(--text);
+      margin-bottom: 0;
+    }
+    .phase-card .dose {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--purple);
+      margin: 8px 0 4px;
+    }
+
+    /* TIPS */
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .tip-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      font-size: 14px;
+    }
+    .tip-card .tip-icon { font-size: 24px; margin-bottom: 8px; }
+    .tip-card h4 { font-weight: 700; margin-bottom: 4px; }
+    .tip-card p { color: var(--muted); }
+
+    /* FOOTER */
+    footer {
+      background: var(--disney-blue);
+      color: white;
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+    footer span { color: var(--disney-gold); font-weight: 700; }
+
+    @media (max-width: 600px) {
+      .week-body { grid-template-columns: 1fr 1fr; }
+      .race-meta { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="badge">✨ Disney Run Singapore 2026</div>
+  <h1>Your <span>7-Week</span> Race Plan</h1>
+  <p>Training in Bangkok (Gym) · Racing in Singapore · Nutrition · Shoes</p>
+  <div class="race-meta">
+    <div class="chip">
+      <div class="label">Race Date</div>
+      <div class="value">Jul 5, 2026</div>
+    </div>
+    <div class="chip">
+      <div class="label">Distance</div>
+      <div class="value">5 km</div>
+    </div>
+    <div class="chip">
+      <div class="label">Venue</div>
+      <div class="value">Sentosa, SG</div>
+    </div>
+    <div class="chip">
+      <div class="label">Start</div>
+      <div class="value">6:30 AM</div>
+    </div>
+    <div class="chip">
+      <div class="label">Athlete</div>
+      <div class="value">91.8 kg · 171 cm</div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- SHOES -->
+  <div class="section-title">
+    <div class="icon">👟</div>
+    Shoe Strategy
+  </div>
+  <div class="shoe-grid">
+    <div class="shoe-card">
+      <div class="shoe-name">Asics Novablast 5</div>
+      <div class="shoe-role role-train">Training Shoe</div>
+      <ul>
+        <li>Use for all 7 weeks of treadmill training runs</li>
+        <li>Plush FF BLAST+ cushioning absorbs treadmill belt impact well</li>
+        <li>Forgiving on heavier frames — protects knees and joints at 91.8 kg</li>
+        <li>Great for easy & moderate effort runs in the gym</li>
+      </ul>
+    </div>
+    <div class="shoe-card primary">
+      <div class="shoe-name">Adidas Takumi Sen (EQT)</div>
+      <div class="shoe-role role-race">Race Day Shoe ★</div>
+      <ul>
+        <li>Wear on race day — 5km flat paved Sentosa course is its sweet spot</li>
+        <li>Lightweight with fast turnover feel — rewards effort on race day</li>
+        <li>Do 2–3 shakeout runs on treadmill in it during Weeks 5–6</li>
+        <li>Firmer ride at lower stack — let your legs adapt before pinning it on July 5</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TRAINING PLAN -->
+  <div class="section-title">
+    <div class="icon">📅</div>
+    7-Week Training Plan
+  </div>
+  <div class="week-grid">
+
+    <!-- WEEK 1 -->
+    <div class="week-card">
+      <div class="week-header">
+        <div class="week-num">1</div>
+        <div>
+          <h3>Foundation</h3>
+          <p>Get into the rhythm — treadmill, easy effort only</p>
+        </div>
+        <div class="week-dates">May 18–24</div>
+      </div>
+      <div class="week-body">
+        <div class="day-box">
+          <div class="day-label">Mon</div>
+          <div class="day-activity">Treadmill Run</div>
+          <div class="day-detail">2 km easy, 0% incline</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Tue</div>
+          <div class="day-activity">Stationary Bike</div>
+          <div class="day-detail">20 min easy recovery</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Wed</div>
+          <div class="day-activity">Treadmill Run</div>
+          <div class="day-detail">2.5 km easy</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Thu</div>
+          <div class="day-activity">Rest</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Fri</div>
+          <div class="day-activity">Treadmill Run</div>
+          <div class="day-detail">3 km easy</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Sat</div>
+          <div class="day-activity">Rest</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Sun</div>
+          <div class="day-activity">Rest</div>
+        </div>
+      </div>
+      <div class="week-tip">💡 Treadmill at 0% incline, conversational pace. If you can't talk, slow down. Novablast 5 all week. Stationary bike replaces idle rest.</div>
+    </div>
+
+    <!-- WEEK 2 -->
+    <div class="week-card">
+      <div class="week-header">
+        <div class="week-num">2</div>
+        <div>
+          <h3>Base Building</h3>
+          <p>Slightly longer, still fully aerobic — start creatine</p>
+        </div>
+        <div class="week-dates">May 25–31</div>
+      </div>
+      <div class="week-body">
+        <div class="day-box">
+          <div class="day-label">Mon</div>
+          <div class="day-activity">Treadmill Run</div>
+          <div class="day-detail">3 km easy</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Tue</div>
+          <div class="day-activity">Rowing Machine</div>
+          <div class="day-detail">20 min easy</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Wed</div>
+          <div class="day-activity">Treadmill Run</div>
+          <div class="day-detail">3 km easy</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Thu</div>
+          <div class="day-activity">Rest</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Fri</div>
+          <div class="day-activity">Treadmill Run</div>
+          <div class="day-detail">3.5 km easy</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Sat</div>
+          <div class="day-activity">Stationary Bike</div>
+          <div class="day-detail">20 min easy recovery</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Sun</div>
+          <div class="day-activity">Rest</div>
+        </div>
+      </div>
+      <div class="week-tip">💡 Start creatine this week (loading or 5g/day). Rowing machine is great low-impact cardio — builds aerobic base without leg fatigue.</div>
+    </div>
+
+    <!-- WEEK 3 -->
+    <div class="week-card">
+      <div class="week-header">
+        <div class="week-num">3</div>
+        <div>
+          <h3>Leg Activation</h3>
+          <p>Add treadmill strides — wake up fast-twitch fibres</p>
+        </div>
+        <div class="week-dates">Jun 1–7</div>
+      </div>
+      <div class="week-body">
+        <div class="day-box">
+          <div class="day-label">Mon</div>
+          <div class="day-activity">Treadmill Run</div>
+          <div class="day-detail">3 km + 4 strides</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Tue</div>
+          <div class="day-activity">Rowing Machine</div>
+          <div class="day-detail">25 min easy</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Wed</div>
+          <div class="day-activity">Treadmill Run</div>
+          <div class="day-detail">4 km easy</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Thu</div>
+          <div class="day-activity">Rest</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Fri</div>
+          <div class="day-activity">Treadmill Run</div>
+          <div class="day-detail">3 km + 4 strides</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Sat</div>
+          <div class="day-activity">Stationary Bike</div>
+          <div class="day-detail">20 min easy</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Sun</div>
+          <div class="day-activity">Rest</div>
+        </div>
+      </div>
+      <div class="week-tip">💡 Treadmill strides: bump speed up for 20 sec, straddle belt to recover, repeat 4×. On/off the belt is fine — this wakes up leg turnover.</div>
+    </div>
+
+    <!-- WEEK 4 -->
+    <div class="week-card">
+      <div class="week-header">
+        <div class="week-num">4</div>
+        <div>
+          <h3>Building Intensity</h3>
+          <p>First taste of race pace — treadmill tempo run</p>
+        </div>
+        <div class="week-dates">Jun 8–14</div>
+      </div>
+      <div class="week-body">
+        <div class="day-box">
+          <div class="day-label">Mon</div>
+          <div class="day-activity">Treadmill Run</div>
+          <div class="day-detail">4 km easy</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Tue</div>
+          <div class="day-activity">Stationary Bike</div>
+          <div class="day-detail">25 min easy</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Wed</div>
+          <div class="day-activity">Tempo Treadmill</div>
+          <div class="day-detail">4 km comfortably hard</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Thu</div>
+          <div class="day-activity">Rest</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Fri</div>
+          <div class="day-activity">Treadmill Run</div>
+          <div class="day-detail">3 km + 4 strides</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Sat</div>
+          <div class="day-activity">Rowing Machine</div>
+          <div class="day-detail">20 min easy</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Sun</div>
+          <div class="day-activity">Rest</div>
+        </div>
+      </div>
+      <div class="week-tip">💡 Wednesday tempo: bump treadmill to a pace that makes talking difficult but not impossible. Finish feeling like you had 1 km left in you.</div>
+    </div>
+
+    <!-- WEEK 5 -->
+    <div class="week-card">
+      <div class="week-header">
+        <div class="week-num">5</div>
+        <div>
+          <h3>Full Distance</h3>
+          <p>Nail 5km on treadmill. First Takumi Sen shakeout.</p>
+        </div>
+        <div class="week-dates">Jun 15–21</div>
+      </div>
+      <div class="week-body">
+        <div class="day-box">
+          <div class="day-label">Mon</div>
+          <div class="day-activity">Treadmill Run</div>
+          <div class="day-detail">4 km easy</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Tue</div>
+          <div class="day-activity">Stationary Bike</div>
+          <div class="day-detail">25 min easy</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Wed</div>
+          <div class="day-activity">Treadmill 5 km</div>
+          <div class="day-detail">Easy, full race distance</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Thu</div>
+          <div class="day-activity">Rest</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Fri</div>
+          <div class="day-activity">Takumi Sen 👟</div>
+          <div class="day-detail">3 km shakeout + strides</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Sat</div>
+          <div class="day-activity">Rowing Machine</div>
+          <div class="day-detail">20 min easy</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Sun</div>
+          <div class="day-activity">Rest</div>
+        </div>
+      </div>
+      <div class="week-tip">💡 First Takumi Sen run on treadmill — the firmer, lower feel will be noticeable vs Novablast. Keep it easy; you're breaking it in, not racing.</div>
+    </div>
+
+    <!-- WEEK 6 -->
+    <div class="week-card">
+      <div class="week-header">
+        <div class="week-num">6</div>
+        <div>
+          <h3>Race Simulation</h3>
+          <p>Race pace effort in Takumi Sen. Simulate the morning.</p>
+        </div>
+        <div class="week-dates">Jun 22–28</div>
+      </div>
+      <div class="week-body">
+        <div class="day-box">
+          <div class="day-label">Mon</div>
+          <div class="day-activity">Treadmill Run</div>
+          <div class="day-detail">4 km easy</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Tue</div>
+          <div class="day-activity">Stationary Bike</div>
+          <div class="day-detail">25 min easy</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Wed</div>
+          <div class="day-activity">Takumi Sen 👟</div>
+          <div class="day-detail">5 km at race effort</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Thu</div>
+          <div class="day-activity">Rest</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Fri</div>
+          <div class="day-activity">Treadmill Run</div>
+          <div class="day-detail">3 km easy</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Sat</div>
+          <div class="day-activity">Rest</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Sun</div>
+          <div class="day-activity">Rest</div>
+        </div>
+      </div>
+      <div class="week-tip">💡 Wednesday: eat your planned race breakfast, then run at 6am in Takumi Sen. Practice the full morning routine — your gut needs the rehearsal too.</div>
+    </div>
+
+    <!-- WEEK 7 -->
+    <div class="week-card">
+      <div class="week-header">
+        <div class="week-num">7</div>
+        <div>
+          <h3>Race Week — Taper</h3>
+          <p>Stay fresh. Trust the training.</p>
+        </div>
+        <div class="week-dates">Jun 29 – Jul 5</div>
+      </div>
+      <div class="week-body">
+        <div class="day-box">
+          <div class="day-label">Mon</div>
+          <div class="day-activity">Treadmill Run</div>
+          <div class="day-detail">3 km easy</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Tue</div>
+          <div class="day-activity">Rest</div>
+        </div>
+        <div class="day-box">
+          <div class="day-label">Wed</div>
+          <div class="day-activity">Treadmill Shakeout</div>
+          <div class="day-detail">2 km + 4 strides</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Thu</div>
+          <div class="day-activity">Rest</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Fri</div>
+          <div class="day-activity">Complete Rest</div>
+          <div class="day-detail">Legs up, hydrate</div>
+        </div>
+        <div class="day-box rest">
+          <div class="day-label">Sat</div>
+          <div class="day-activity">Complete Rest</div>
+          <div class="day-detail">Prep kit & sleep early</div>
+        </div>
+        <div class="day-box race">
+          <div class="day-label">Sun — Jul 5</div>
+          <div class="day-activity">🏁 RACE DAY</div>
+          <div class="day-detail">5 km · 6:30 AM · Sentosa</div>
+        </div>
+      </div>
+      <div class="week-tip">💡 Don't run Friday or Saturday. The hay is in the barn. Lay out your gear the night before — Takumi Sen, bib, hydration.</div>
+    </div>
+
+  </div>
+
+  <!-- NUTRITION -->
+  <div class="section-title">
+    <div class="icon">🍽</div>
+    Daily Meal Plan
+  </div>
+
+  <!-- MACRO TARGETS -->
+  <div class="macro-bar-section">
+    <h3>Daily Macro Targets — 91.8 kg · 171 cm · Training Days</h3>
+    <div class="macro-row">
+      <div class="macro-label">
+        <span>🟢 Protein</span>
+        <span>~180–185g / day (2.0g × 91.8 kg) · ~720 kcal</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill bar-protein"></div></div>
+    </div>
+    <div class="macro-row">
+      <div class="macro-label">
+        <span>🔵 Carbohydrates</span>
+        <span>~250–275g / day (fuel for runs) · ~1060 kcal</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill bar-carbs"></div></div>
+    </div>
+    <div class="macro-row">
+      <div class="macro-label">
+        <span>🟠 Fats</span>
+        <span>~70–75g / day (hormones & recovery) · ~650 kcal</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill bar-fat"></div></div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-top:12px;">Total ~2,430 kcal on training days — moderate deficit for body composition improvement while fuelling gym sessions. Rest days: cut carbs by ~30% (~175g), keep protein the same.</p>
+  </div>
+
+  <!-- MEALS -->
+  <div class="meal-grid">
+
+    <div class="meal-card">
+      <h3>🌅 Pre-Run / Pre-Gym (30–60 min before)</h3>
+      <div class="subtitle">Light carbs + small protein. No heavy food before training.</div>
+      <div class="meal-item">
+        <span class="food">2 slices white toast + peanut butter</span>
+        <span class="macros">30g C · 8g P</span>
+      </div>
+      <div class="meal-item">
+        <span class="food">1 banana</span>
+        <span class="macros">27g C · fast energy</span>
+      </div>
+      <div class="meal-item">
+        <span class="food">400ml water before gym</span>
+        <span class="macros">hydration</span>
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <h3>🍳 Post-Gym Breakfast (within 45 min)</h3>
+      <div class="subtitle">Hit 40–50g protein fast — this is the most important meal.</div>
+      <div class="meal-item">
+        <span class="food">1 scoop whey protein in milk (300ml)</span>
+        <span class="macros">25–30g P · 15g C</span>
+      </div>
+      <div class="meal-item">
+        <span class="food">3 whole eggs + 2 egg whites scrambled</span>
+        <span class="macros">25g P · 5g F</span>
+      </div>
+      <div class="meal-item">
+        <span class="food">80g oats with berries</span>
+        <span class="macros">50g C · 4g P</span>
+      </div>
+      <div class="meal-item">
+        <span class="food">5g creatine monohydrate (stir into oats)</span>
+        <span class="macros">★ supplement</span>
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <h3>🥗 Lunch (12:00–1:00 PM)</h3>
+      <div class="subtitle">Largest meal of the day. Bangkok-friendly options listed.</div>
+      <div class="meal-item">
+        <span class="food">200g grilled chicken breast / pla kapong / tofu</span>
+        <span class="macros">44–48g P</span>
+      </div>
+      <div class="meal-item">
+        <span class="food">1 cup jasmine rice or sweet potato</span>
+        <span class="macros">50g C</span>
+      </div>
+      <div class="meal-item">
+        <span class="food">Stir-fried greens / som tam (no sugar)</span>
+        <span class="macros">fibre · micronutrients</span>
+      </div>
+      <div class="meal-item">
+        <span class="food">½ avocado or 1 tbsp olive oil in dressing</span>
+        <span class="macros">10–15g F</span>
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <h3>🍌 Mid-Afternoon Snack (3:00–4:00 PM)</h3>
+      <div class="subtitle">Keep protein coming in every 3–4 hrs to hit 180g daily.</div>
+      <div class="meal-item">
+        <span class="food">Greek yoghurt (200g, plain) or Noosa</span>
+        <span class="macros">20g P · 10g C</span>
+      </div>
+      <div class="meal-item">
+        <span class="food">Handful of almonds or mixed nuts (30g)</span>
+        <span class="macros">6g P · 16g F</span>
+      </div>
+      <div class="meal-item">
+        <span class="food">1 apple or 2 mandarins</span>
+        <span class="macros">20g C · vitamins</span>
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <h3>🍜 Dinner (7:00–8:00 PM)</h3>
+      <div class="subtitle">High protein, moderate carbs. Reduce rice on rest days.</div>
+      <div class="meal-item">
+        <span class="food">200g salmon / lean beef / khao man gai chicken</span>
+        <span class="macros">44–48g P</span>
+      </div>
+      <div class="meal-item">
+        <span class="food">Stir-fried vegetables (unlimited — pad pak)</span>
+        <span class="macros">fibre · micronutrients</span>
+      </div>
+      <div class="meal-item">
+        <span class="food">½ cup rice (skip on rest days)</span>
+        <span class="macros">30g C</span>
+      </div>
+      <div class="meal-item">
+        <span class="food">1 tsp sesame oil or fish sauce dressing</span>
+        <span class="macros">5g F · flavour</span>
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <h3>🌙 Pre-Sleep Protein (9:30–10:00 PM)</h3>
+      <div class="subtitle">Slow-digesting protein for overnight muscle repair. Closes the protein gap.</div>
+      <div class="meal-item">
+        <span class="food">200g cottage cheese OR</span>
+        <span class="macros">24g P slow</span>
+      </div>
+      <div class="meal-item">
+        <span class="food">1 scoop casein protein + 300ml low-fat milk</span>
+        <span class="macros">33g P slow</span>
+      </div>
+      <div class="meal-item">
+        <span class="food">Daily protein total check: aim for 180g+</span>
+        <span class="macros">★ key target</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CREATINE -->
+  <div class="creatine-section">
+    <h3>⚡ Creatine Protocol</h3>
+    <p>Creatine monohydrate improves high-intensity performance, sprint finishes, and speeds recovery between hard sessions. It takes 3–4 weeks to fully saturate muscles — start in Week 2 for it to peak right before race day.</p>
+    <div class="creatine-phases">
+      <div class="phase-card">
+        <h4>Loading Phase (Optional)</h4>
+        <div class="dose">20g / day</div>
+        <p>Split into 4 × 5g doses for 5–7 days (Weeks 2). Saturates muscles faster. Can cause temporary water weight and bloating — manageable.</p>
+      </div>
+      <div class="phase-card">
+        <h4>Maintenance Phase</h4>
+        <div class="dose">5g / day</div>
+        <p>One serving every morning, mixed into your post-run breakfast shake or oats. Continue through race day and beyond.</p>
+      </div>
+      <div class="phase-card">
+        <h4>No-Loading Alternative</h4>
+        <div class="dose">5g / day</div>
+        <p>Skip loading — just take 5g daily from Week 1. Takes 3–4 weeks to saturate but no bloating. Either approach works for a 7-week plan.</p>
+      </div>
+      <div class="phase-card">
+        <h4>Race Day Tip</h4>
+        <div class="dose">5g + H₂O</div>
+        <p>Take your normal 5g dose the morning of July 5 with your pre-run breakfast. No special timing needed — it works at saturation level, not acutely.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="section-title">
+    <div class="icon">🏋️</div>
+    Bangkok Gym Training Tips
+  </div>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-icon">🎚️</div>
+      <h4>Treadmill Incline</h4>
+      <p>Set incline to 1% on all easy runs — it better simulates outdoor road running and engages your glutes more. Only go 0% for stride sessions.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">💧</div>
+      <h4>Gym Hydration</h4>
+      <p>AC gym air is dry — drink 500ml during each treadmill session. Bangkok heat outside means 3–3.5L total daily water. Electrolytes post-run.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🚣</div>
+      <h4>Rowing Machine Benefit</h4>
+      <p>At 91.8 kg, rowing is your best cross-training tool — it burns high calories with zero joint impact. Great for active recovery between run days.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🧂</div>
+      <h4>Sodium & Creatine</h4>
+      <p>Creatine pulls water into muscles — you need more sodium and fluids. Don't under-salt meals. Coconut water (no sugar) is a great natural electrolyte drink in Bangkok.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">😴</div>
+      <h4>Sleep (Non-Negotiable)</h4>
+      <p>7–8 hours minimum. Sleep is when muscle protein synthesis peaks and creatine works. Race week: sleep by 10 PM Fri/Sat before the Jul 5 start.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">⚖️</div>
+      <h4>Weight at 91.8 kg</h4>
+      <p>Joints take ~3× body weight impact per stride. The Novablast 5 is the right call for training — its cushioning is specifically important at your weight. Don't skip it for the Takumi Sen on long sessions.</p>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:8px;">
+    <div class="icon">🌊</div>
+    Race Day — Singapore Tips
+  </div>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-icon">🌡️</div>
+      <h4>Race Day Heat</h4>
+      <p>Sentosa at 6:30 AM is already 28–30°C and humid with little shade. This is very different from your AC gym. Your body needs to adjust — factor in a slower pace vs treadmill.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">💦</div>
+      <h4>Pre-Race Hydration</h4>
+      <p>Drink 500–600ml water 90 min before the start. Sip 200ml at the start line. Don't chug right before — you'll cramp. Start hydrating the night before.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🎽</div>
+      <h4>Kit Collection</h4>
+      <p>Collect race kit Jun 27–28 at Uniqlo Flagship, Orchard Central (11am–7pm). Test your full outfit on your Week 6 Wednesday run — nothing new on race day.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🏁</div>
+      <h4>Pacing Strategy</h4>
+      <p>Don't sprint km 1 — outdoor heat will punish you. Run km 1–3 comfortably, then push km 4–5. A positive split in the heat costs more than it gains.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Disney Run Singapore 2026 &nbsp;·&nbsp; <span>5 km</span> &nbsp;·&nbsp; Siloso Beach Walk, Sentosa &nbsp;·&nbsp; July 5, 2026 · 6:30 AM
+</footer>
+
+</body>
+</html>
